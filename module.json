@@ -46,10 +46,10 @@
       "path": "lang/es.json"
     }
   ],
-  "manifest":"https://github.com/death-save/maestro/releases/latest/download/module.json",
-  "download": "https://github.com/death-save/maestro/releases/latest/download/module.zip",
-  "url": "https://github.com/death-save/maestro",
-  "bugs": "https://github.com/death-save/maestro/issues",
+  "manifest":"https://github.com/henrikroschmann/maestro/releases/latest/download/module.json",
+  "download": "https://github.com/henrikroschmann/maestro/releases/latest/download/module.zip",
+  "url": "https://github.com/henrikroschmann/maestro",
+  "bugs": "https://github.com/henrikroschmann/maestro/issues",
   "flags": {
     "allowBugReporter": true
   }
