@@ -311,7 +311,9 @@ async function _migrateTokenOwnedItemFlags() {
             console.log(game.i18n.localize("MAESTRO.LOGS.MigrationTokenOwnedItemsFound"), t.actorId, t.id, s.id, badFlagItems);
             
 
-            const itemUpdates = await duplicate(ownedItems);
+
+            const itemUpdates = foundry.utils.deepClone(ownedItems);
+
             
             itemUpdates.forEach(i => {
                 const flag = i.flags[MAESTRO.MODULE_NAME] ? i.flags[MAESTRO.MODULE_NAME][MAESTRO.DEFAULT_CONFIG.ItemTrack.flagNames.track] : null;

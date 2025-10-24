@@ -70,16 +70,16 @@ export default class CombatTrack {
     
     /**
      * Checks the updating Combat instance to determine if it just starting (round 0 => round 1)
-     * @param {*} combat 
-     * @param {*} update 
-     * @param {*} options 
+     * @param {*} combat
+     * @param {*} update
+     * @param {*} options
      */
     static _checkCombatStart(combat, update, options) {
         const combatStart = combat.round === 0 && update.round === 1;
 
         if (!isFirstGM() || !combatStart) return;
 
-        setProperty(options, `${MAESTRO.MODULE_NAME}.${MAESTRO.FLAGS.CombatTrack.combatStarted}`, true);
+        foundry.utils.setProperty(options, `${MAESTRO.MODULE_NAME}.${MAESTRO.FLAGS.CombatTrack.combatStarted}`, true);
     }
 
     /**
@@ -88,9 +88,7 @@ export default class CombatTrack {
      * @param update
      */
     async _getCombatTrack(combat, update, options) {
-        const combatStarted = getProperty(options, `${MAESTRO.MODULE_NAME}.${MAESTRO.FLAGS.CombatTrack.combatStarted}`);
-
-        if (!isFirstGM() || !combatStarted) {
+        const combatStarted = foundry.utils.getProperty(options, `${MAESTRO.MODULE_NAME}.${MAESTRO.FLAGS.CombatTrack.combatStarted}`);        if (!isFirstGM() || !combatStarted) {
             return;
         }
 
