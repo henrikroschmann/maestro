@@ -61,15 +61,13 @@ export default class HypeTrack {
      * @param {*} update - the update data
      */
     async _processHype(combat, update) {
-        if (combat?.current?.round == 0 
-            || !Number.isNumeric(update.turn)
-            || !combat.combatants?.contents?.length 
-            || !this.playlist 
+        if (combat?.current?.round == 0
+            || typeof update.turn !== 'number'
+            || !combat.combatants?.contents?.length        
+            || !this.playlist
             || !isFirstGM()) {
             return;
-        }
-
-        // Stop any active hype tracks
+        }        // Stop any active hype tracks
         if (this.playlist?.playing) await this.playlist.stopAll();
 
         // Find the hype track
@@ -135,21 +133,19 @@ export default class HypeTrack {
     /**
      * Get the Hype Track flag if it exists on an actor
      * @param {*} actor
-     * 
+     *
      */
     _getActorHypeTrack(actor) {
-        return getProperty(actor, `flags.${MAESTRO.MODULE_NAME}.${MAESTRO.DEFAULT_CONFIG.HypeTrack.flagNames.track}`);
-    }
-    
-    /**
-     * Sets the Hype Track
-     * @param {Number} trackId - Id of the track in the playlist 
-     */
-    async _setActorHypeTrack(actor, trackId) {
-        return await actor.update({[`flags.${MAESTRO.MODULE_NAME}.${MAESTRO.DEFAULT_CONFIG.HypeTrack.flagNames.track}`]: trackId});
+        return foundry.utils.getProperty(actor, `flags.${MAESTRO.MODULE_NAME}.${MAESTRO.DEFAULT_CONFIG.HypeTrack.flagNames.track}`);
     }
 
     /**
+     * Sets the Hype Track
+     * @param {Number} trackId - Id of the track in the playlist
+     */
+    async _setActorHypeTrack(actor, trackId) {
+        return await actor.update({[`flags.${MAESTRO.MODULE_NAME}.${MAESTRO.DEFAULT_CONFIG.HypeTrack.flagNames.track}`]: trackId});
+    }    /**
      * Gets the Hype Flags
      * @param {Actor} actor 
      * @returns {Object} the Hype flags object

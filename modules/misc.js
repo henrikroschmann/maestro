@@ -16,7 +16,7 @@ export class MaestroConfigForm extends FormApplication {
      * Default Options for this FormApplication
      */
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             id: "maestro-config",
             title: MAESTRO.DEFAULT_CONFIG.Misc.maestroConfigTitle,
             template: MAESTRO.DEFAULT_CONFIG.Misc.maestroConfigTemplatePath,

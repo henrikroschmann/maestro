@@ -1,8 +1,7 @@
 {
-  "name":"maestro",
+  "id":"maestro",
   "title":"Maestro",
   "description":"Adds new sound-related features such as Hype Tracks and Item Tracks",
-  "author":"Evan Clarke (errational#2007)",
   "authors": [
     {
       "name": "Evan Clarke",
@@ -13,8 +12,11 @@
     }
   ],
   "version":"0.9.0",
-  "minimumCoreVersion":"10.278",
-  "compatibleCoreVersion":"10.278",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13",
+    "maximum": "13"
+  },
   "esmodules":["./maestro.js"],
   "styles": ["./maestro.css"],
   "languages": [
